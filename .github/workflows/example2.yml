@@ -10,10 +10,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: List files
-        run: |
-            ls -la
+        run: ls -la
       - name: Run a script
         run: |
           chmod +x generate.sh
-          ./github/workflows/generate.sh
+          ./generate.sh
         shell: bash
