@@ -14,5 +14,7 @@ jobs:
             ls -la
             cat output.txt
       - name: Run generate script
-        run: ./github/workflows/generate.sh
+        run: |
+          chmod +x generate.sh
+          ./github/workflows/generate.sh
         shell: bash
