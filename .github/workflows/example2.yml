@@ -15,15 +15,7 @@ jobs:
       - name: Generate ASCII Artwork
         run: cowsay -f dragon "Run your workflow with style!" >> output.txt 
       - name: Test file Existence
-        run: |
-          if [ -f output.txt ]; then
-           grep -i "Run!" output.txt
-            echo "File output.txt exists."
-          else
-            echo "File output.txt does not exist."
-            exit 1
-          fi 
-
+        run: grep -i "Run!" output.txt
       - name: List files
         run: |
             ls -la
