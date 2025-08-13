@@ -1,5 +1,4 @@
 name : example1 workflow
-description: This is an example workflow that runs on push events.
 
 on: push
 
@@ -7,7 +6,7 @@ jobs:
   example1:
     runs-on: ubuntu-latest
     steps:
-      - name: Welcome message
+      - name: Welcoming messages
         run: echo "Welcome to the example workflow!"
 
       - name: List files
