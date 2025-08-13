@@ -11,5 +11,5 @@ jobs:
         run: ls -la
         
       - name: read file
-        run: cat index.html
+        run: cat README.md
     
