@@ -6,14 +6,13 @@ jobs:
   generate_artwork:
     runs-on: ubuntu-latest
     steps:
-      - name: Generate ASCII Artwork
-        uses: actions/checkout@v5
+      - name: Execute a script
+        uses: actions/checkout@v4
 
       - name: List files
         run: |
             ls -la
-            cat output.txt
-      - name: Run generate script
+      - name: Run a script
         run: |
           chmod +x generate.sh
           ./github/workflows/generate.sh
