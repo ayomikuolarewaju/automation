@@ -8,11 +8,10 @@ jobs:
     steps:
       - name: Execute a script
         uses: actions/checkout@v4
-
-      - name: List files
-        run: ls -la
       - name: Run a script
         run: |
           chmod +x generate.sh
           ./github/workflows/generate.sh
+      - name: List files
+        run: ls -la    
         
