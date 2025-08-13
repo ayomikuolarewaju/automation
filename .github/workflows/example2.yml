@@ -3,7 +3,7 @@ name : example2 workflow
 on: push
 
 jobs:
-  example2:
+  generate_artwork:
     runs-on: ubuntu-latest
     steps:
       - name: Generate ASCII Artwork
@@ -15,7 +15,7 @@ jobs:
       - name: Generate ASCII Artwork
         run: cowsay -f dragon "Run your workflow with style!" >> output.txt 
       - name: Test file Existence
-        run: grep -i "Run!" output.txt
+        run: grep -i "Run" output.txt
       - name: List files
         run: |
             ls -la
