@@ -15,4 +15,4 @@ jobs:
         run: |
           chmod +x generate.sh
           ./github/workflows/generate.sh
-        shell: bash
+        
