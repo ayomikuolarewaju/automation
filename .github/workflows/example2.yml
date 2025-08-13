@@ -9,14 +9,10 @@ jobs:
       - name: Generate ASCII Artwork
         uses: actions/checkout@v5
 
-      - name: Install Cowsay Package
-        run: sudo apt-get install cowsay -y   
-
-      - name: Generate ASCII Artwork
-        run: cowsay -f dragon "Run your workflow with style!" >> output.txt 
-      - name: Test file Existence
-        run: grep -i "Run" output.txt
       - name: List files
         run: |
             ls -la
             cat output.txt
+      - name: Run generate script
+        run: ./github/workflows/generate.sh
+        shell: bash
