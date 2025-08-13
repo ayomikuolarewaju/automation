@@ -1,0 +1,30 @@
+name : example2 workflow
+
+on: push
+
+jobs:
+  example2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate ASCII Artwork
+        uses: actions/checkout@v5
+
+      - name: Install Cowsay Package
+        run: sudo apt-get install cowsay -y   
+
+      - name: Generate ASCII Artwork
+        run: cowsay -f dragon "Run your workflow with style!" >> output.txt 
+      - name: Test file Existence
+        run: |
+          if [ -f output.txt ]; then
+           grep -i "Run!" output.txt
+            echo "File output.txt exists."
+          else
+            echo "File output.txt does not exist."
+            exit 1
+          fi 
+
+      - name: List files
+        run: |
+            ls -la
+            cat output.txt

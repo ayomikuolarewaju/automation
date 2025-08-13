@@ -10,11 +10,17 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Welcoming messages
-        run: echo "Welcome to the example workflow!"
+        run: |
+          echo "Welcome to the example workflow!"
+          ls -la
+          cat README.md
 
-      - name: List files
-        run: ls -la
+      - name: Generate ASCII Artwork
+        run: cowsay -f dragon "Run your workflow with style!" >> output.txt     
+
+      # - name: List files
+      #   run: ls -la
         
-      - name: read file
-        run: cat README.md
+      # - name: read file
+      #   run: cat README.md
     
