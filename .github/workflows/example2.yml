@@ -14,5 +14,5 @@ jobs:
       - name: Run a script
         run: |
           chmod +x generate.sh
-          ./generate.sh
+          ./github/workflows/generate.sh
         shell: bash
