@@ -1,5 +1,8 @@
-name : example1
+name : example1 workflow
+description: This is an example workflow that runs on push events.
+
 on: push
+
 jobs:
   example1:
     runs-on: ubuntu-latest
