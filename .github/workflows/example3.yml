@@ -1,0 +1,57 @@
+
+name: example3 multijobs
+
+on: push
+
+jobs:
+
+  Build_workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Installation
+        run: sudo apt-get install cowsay -y
+
+      - name: Execution of Installation
+        run: cowsay -f dragon "Run your workflow with style!" >> output.txt  
+        
+      - name: sleep time
+        uses: actions/upload-artifact@v3
+        with:
+          name: Uploaded-Artifact
+          path: output.txt      
+        
+  Test_workflow:
+    needs: Build_workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute a script
+        uses: actions/download-artifact@v3
+        with:
+          name: Uploaded-Artifact     
+
+      - name: Selection of text
+        run: grep -i "Run" output.txt  
+      
+      - name: Opening address
+        run: ls -a  
+        
+  Deploy_workflow:
+    needs: Test_workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read the file
+        uses: actions/download-artifact@v3
+        with:
+          name: Uploaded-Artifact     
+
+      - name: Reading of File
+        run: cat output.txt 
+        
+      - name: Deploying File
+        run: echo "deployment ..............."    
+
+   
+  
+ 
+ 
+ 
